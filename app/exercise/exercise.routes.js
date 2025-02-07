@@ -8,6 +8,7 @@ import {
 } from './exercise.controller.js'
 import { createNewExerciseLog } from './log/exercise-log.controller.js'
 import { getExerciseLog } from './log/get-exercise-log.controller.js'
+import { completeExerciseLog, updateExerciseLogTime } from './log/update-exercise-log.controller.js'
 
 const router = express.Router()
 
@@ -22,6 +23,12 @@ router
 	.post(protect, createNewExerciseLog)
 	.get(protect, getExerciseLog)
 
-export default router
+	router.route('/log/time/:id').put(protect, updateExerciseLogTime)
+	router.route('/log/complete/:id').patch(protect, completeExerciseLog)
+
+	export default router
+
+	//TODO: сделал роуты для логов упражнения, теперь нужно сделать роуты для логов упражнения!!
+	
 
 //lesson 10 time:11:52 (40davai)

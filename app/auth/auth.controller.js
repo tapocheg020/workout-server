@@ -9,16 +9,20 @@ import { generateToken } from './generate-token.js'
 // @route 		POST /api/auth/login
 // @access 		Public
 export const authUser = asyncHandler(async (req, res) => {
-	const { email, password } = req.body
+	try {
+		const { email, password } = req.body
 
-	const user = (await prisma.user.findMany({ where: { email } }))[0]
+	const user = await prisma.user.findMany({
+		where: { email }
+	})
 
 	const isValidPassword = await verify(user.password, password)
 
-	if (!user) {
-		res.status(401)
-		throw new Error('User not found')
-	}
+	// if (!user) {
+	// 	res.status(401)
+	// 	throw new Error('User not found')
+	// }
+
 
 	if (user && isValidPassword) {
 		const token = generateToken(user.id)
@@ -26,6 +30,10 @@ export const authUser = asyncHandler(async (req, res) => {
 	} else {
 		res.status(401)
 		throw new Error('Email and password are not connected!!!')
+	}
+	}catch (error) {
+		res.status(404)
+		throw new Error('User not found!!!')
 	}
 })
 

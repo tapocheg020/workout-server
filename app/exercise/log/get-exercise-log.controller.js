@@ -5,7 +5,6 @@ import { addPrevValues } from './add-prev-values.utils.js'
 // @desc 	 	 	Get exerciseLog
 // @route 		GET /api/exercises/log/:id
 // @access 		Private
-
 export const getExerciseLog = asyncHandler(async (req, res) => {
 	const exerciseLog = await prisma.exerciseLog.findUnique({
 		where: {
