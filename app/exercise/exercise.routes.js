@@ -28,7 +28,6 @@ router
 
 	export default router
 
-	//TODO: сделал роуты для логов упражнения, теперь нужно сделать роуты для логов упражнения!!
 	
 
-//lesson 10 time:11:52 (40davai)
+//TODO: lesson 10 time:11:52 (40davai)

@@ -73,5 +73,3 @@ export const getExercises = asyncHandler(async (req, res) => {
 
 	res.json(exercises)
 })
-
-//LESSON NUMBER 8 TIME: 5:20 закончили тем что настроили удаление упражнения под определенным айдишником
