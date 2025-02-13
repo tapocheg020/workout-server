@@ -17,7 +17,6 @@ export const createNewWorkoutLog = asyncHandler(async (req, res) => {
 		}
 	})
 
-	console.log('Workout:', workout)
 
 	if (!workout) {
 		res.status(404)
