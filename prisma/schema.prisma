@@ -41,6 +41,7 @@ model Exercise {
   iconPath String @map("icon_path")
 
   workouts    Workout[]
+	// exerciseLogs ExerciseLog[]
   exerciseLog ExerciseLog? @relation(fields: [exerciseLogId], references: [id])
 
   exerciseLogId Int? @map("exercise_log_id")

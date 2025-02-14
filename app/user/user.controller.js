@@ -40,7 +40,9 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 		}
 	})
 
-	res.json([
+	res.json({
+		...user,
+		statistics: [
 		{
 			label: 'Minutes',
 			value: Math.ceil(countExerciseTimesCompleted * 2.3) || 0
@@ -53,5 +55,5 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 			label: 'Kgs',
 			value: kgs._sum.weight || 0
 		}
-	])
+	]})
 })
